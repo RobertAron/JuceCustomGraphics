@@ -1669,6 +1669,8 @@
     <ClCompile Include="..\..\JuceLibraryCode\juce_video.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\KnobMask.h"/>
+    <ClInclude Include="..\..\Source\MyKnobScene.h"/>
     <ClInclude Include="..\..\Source\MyCustomLookAndFeel.h"/>
     <ClInclude Include="..\..\Source\MainComponent.h"/>
     <ClInclude Include="..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

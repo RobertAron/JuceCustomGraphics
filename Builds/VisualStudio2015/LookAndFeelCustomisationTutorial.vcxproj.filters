@@ -2037,6 +2037,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\KnobMask.h">
+      <Filter>LookAndFeelCustomisationTutorial\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyKnobScene.h">
+      <Filter>LookAndFeelCustomisationTutorial\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\MyCustomLookAndFeel.h">
       <Filter>LookAndFeelCustomisationTutorial\Source</Filter>
     </ClInclude>

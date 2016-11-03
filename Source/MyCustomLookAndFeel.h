@@ -12,16 +12,15 @@
 #define MYCUSTOMLOOKANDFEEL_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include <iostream>
-#include <string>
+#include "KnobMask.h"
+
+
 class MyCustomLookAndFeel : public LookAndFeel_V3
 {
 public:
 	MyCustomLookAndFeel()
 	{
 		setColour(Slider::rotarySliderFillColourId, Colours::purple);
-		myDesktop = &Desktop::getInstance();
-		globalAnimator = &myDesktop->getAnimator();
 	}
 	void drawButtonBackground(Graphics& g, Button& button, const Colour& backgroundColour,
 		bool isMouseOverButton, bool isButtonDown) override
@@ -82,16 +81,6 @@ public:
 		const float innerw = innerradius *2.0f;
 		const float rw = radius * 2.0f;
 		const float angle = rotaryStartAngle + sliderposition * (rotaryEndAngle - rotaryStartAngle);
-		Logger* log = Logger::getCurrentLogger();
-		if (slider.isMouseOver()) {
-			globalAnimator->animateComponent(&slider, slider.getBounds(), 0, 100, false, 0, 0);
-		}
-		else if (!slider.isMouseOver()) {
-			globalAnimator->animateComponent(&slider, slider.getBounds(), 1, 100, false, 0, 0);
-		}
-		test += 1;
-		log->writeToLog(std::to_string(test));
-		log->writeToLog(std::to_string(ringOpacity));
 		//full circle
 		g.setColour(Colours::black);
 		g.fillEllipse(rx, ry, rw, rw);
@@ -121,8 +110,6 @@ public:
 private:
 	int test=0;
 	float ringOpacity = 0.0f;
-	ComponentAnimator* globalAnimator;
-	Desktop* myDesktop;
 };
 
 

@@ -2,21 +2,15 @@
 #define MAINCOMPONENT_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-
+#include "MyKnobScene.h"
 class MainContentComponent   : public Component
 {
 public:
     MainContentComponent()
     {
-		setLookAndFeel(&myCustomStuff);
-        dial1.setSliderStyle (Slider::RotaryVerticalDrag);
-        dial1.setTextBoxStyle (Slider::NoTextBox, false, 0, 0);
-        addAndMakeVisible (dial1);
-        
-        dial2.setSliderStyle (Slider::RotaryVerticalDrag);
-        dial2.setTextBoxStyle (Slider::NoTextBox, false, 0, 0);
-        addAndMakeVisible (dial2);
-        
+
+		addAndMakeVisible(myKnob1);
+		addAndMakeVisible(myKnob2);
         button1.setButtonText ("Button 1");
         addAndMakeVisible (button1);
         
@@ -43,8 +37,8 @@ public:
         
 		{
 			Rectangle<int> dialArea = area.removeFromTop(area.getHeight() / 2);
-			dial1.setBounds(dialArea.removeFromLeft(dialArea.getWidth() / 2).reduced(border));
-			dial2.setBounds(dialArea.reduced(border));
+			myKnob1.setBounds(dialArea.removeFromLeft(dialArea.getWidth() / 2).reduced(border));
+			myKnob2.setBounds(dialArea.reduced(border));
 		}
         
         const int buttonHeight = 30;
@@ -54,9 +48,8 @@ public:
     }
 
 private:
-	MyCustomLookAndFeel myCustomStuff;
-    Slider dial1;
-    Slider dial2;
+	MyKnobScene myKnob1;
+	MyKnobScene myKnob2;
     TextButton button1;
     TextButton button2;
     

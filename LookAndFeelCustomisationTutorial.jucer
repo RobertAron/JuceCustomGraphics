@@ -5,6 +5,8 @@
               includeBinaryInAppConfig="1" jucerVersion="4.2.4">
   <MAINGROUP id="hlcwNQ" name="LookAndFeelCustomisationTutorial">
     <GROUP id="{3F0F6CDB-D7A2-BA46-4896-9F18DDE2DF5B}" name="Source">
+      <FILE id="py1vBZ" name="KnobMask.h" compile="0" resource="0" file="Source/KnobMask.h"/>
+      <FILE id="hShA1U" name="MyKnobScene.h" compile="0" resource="0" file="Source/MyKnobScene.h"/>
       <FILE id="uL4UKT" name="MyCustomLookAndFeel.h" compile="0" resource="0"
             file="Source/MyCustomLookAndFeel.h"/>
       <FILE id="YmyToM" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
