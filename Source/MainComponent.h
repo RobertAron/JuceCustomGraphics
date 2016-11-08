@@ -3,6 +3,8 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "MyKnobScene.h"
+#include "MyKnobScene_V2.h"
+
 class MainContentComponent   : public Component
 {
 public:
@@ -49,7 +51,7 @@ public:
 
 private:
 	MyKnobScene myKnob1;
-	MyKnobScene myKnob2;
+	MyKnobScene_V2 myKnob2;
     TextButton button1;
     TextButton button2;
     

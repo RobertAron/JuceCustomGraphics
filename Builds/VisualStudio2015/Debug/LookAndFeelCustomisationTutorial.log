@@ -1,16 +1,25 @@
 ﻿  Main.cpp
-c:\users\heyimrige\desktop\programing\juce\juceprojects\tutorial_look_and_feel_customisation\source\mycustomlookandfeel.h(70): warning C4373: 'MyCustomLookAndFeel::drawRotarySlider': virtual function overrides 'juce::LookAndFeel_V2::drawRotarySlider', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+c:\users\heyimrige\desktop\programing\juce\myfolder\juceprojects\tutorial_look_and_feel_customisation\source\mycustomlookandfeel.h(70): warning C4373: 'MyCustomLookAndFeel::drawRotarySlider': virtual function overrides 'juce::LookAndFeel_V2::drawRotarySlider', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
   c:\users\heyimrige\desktop\programing\juce\modules\juce_gui_basics\lookandfeel\juce_lookandfeel_v2.h(204): note: see declaration of 'juce::LookAndFeel_V2::drawRotarySlider'
-c:\users\heyimrige\desktop\programing\juce\juceprojects\tutorial_look_and_feel_customisation\source\mycustomlookandfeel.h(26): warning C4100: 'isMouseOverButton': unreferenced formal parameter
-c:\users\heyimrige\desktop\programing\juce\juceprojects\tutorial_look_and_feel_customisation\source\mycustomlookandfeel.h(44): warning C4100: 'isMouseOverButton': unreferenced formal parameter
-c:\users\heyimrige\desktop\programing\juce\juceprojects\tutorial_look_and_feel_customisation\source\mycustomlookandfeel.h(72): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\heyimrige\desktop\programing\juce\juceprojects\tutorial_look_and_feel_customisation\source\mycustomlookandfeel.h(70): warning C4100: 'slider': unreferenced formal parameter
-c:\users\heyimrige\desktop\programing\juce\juceprojects\tutorial_look_and_feel_customisation\source\myknobscene.h(23): warning C4584: 'MyKnobScene': base-class 'juce::MouseListener' is already a base-class of 'juce::Component'
+c:\users\heyimrige\desktop\programing\juce\myfolder\juceprojects\tutorial_look_and_feel_customisation\source\mycustomlookandfeel.h(26): warning C4100: 'isMouseOverButton': unreferenced formal parameter
+c:\users\heyimrige\desktop\programing\juce\myfolder\juceprojects\tutorial_look_and_feel_customisation\source\mycustomlookandfeel.h(44): warning C4100: 'isMouseOverButton': unreferenced formal parameter
+c:\users\heyimrige\desktop\programing\juce\myfolder\juceprojects\tutorial_look_and_feel_customisation\source\mycustomlookandfeel.h(72): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\heyimrige\desktop\programing\juce\myfolder\juceprojects\tutorial_look_and_feel_customisation\source\mycustomlookandfeel.h(70): warning C4100: 'slider': unreferenced formal parameter
+c:\users\heyimrige\desktop\programing\juce\myfolder\juceprojects\tutorial_look_and_feel_customisation\source\myknobscene.h(23): warning C4584: 'MyKnobScene': base-class 'juce::MouseListener' is already a base-class of 'juce::Component'
   c:\users\heyimrige\desktop\programing\juce\modules\juce_gui_basics\mouse\juce_mouselistener.h(37): note: see declaration of 'juce::MouseListener'
   c:\users\heyimrige\desktop\programing\juce\modules\juce_gui_basics\components\juce_component.h(33): note: see declaration of 'juce::Component'
-c:\users\heyimrige\desktop\programing\juce\juceprojects\tutorial_look_and_feel_customisation\source\myknobscene.h(71): warning C4100: 'event': unreferenced formal parameter
-c:\users\heyimrige\desktop\programing\juce\juceprojects\tutorial_look_and_feel_customisation\source\myknobscene.h(75): warning C4100: 'event': unreferenced formal parameter
-c:\users\heyimrige\desktop\programing\juce\juceprojects\tutorial_look_and_feel_customisation\source\main.cpp(28): warning C4100: 'commandLine': unreferenced formal parameter
-c:\users\heyimrige\desktop\programing\juce\juceprojects\tutorial_look_and_feel_customisation\source\main.cpp(50): warning C4100: 'commandLine': unreferenced formal parameter
-  LookAndFeelCustomisationTutorial.vcxproj -> C:\Users\HeyImRige\Desktop\Programing\JUCE\JuceProjects\tutorial_look_and_feel_customisation\Builds\VisualStudio2015\Debug\LookAndFeelCustomisationTutorial.exe
+c:\users\heyimrige\desktop\programing\juce\myfolder\juceprojects\tutorial_look_and_feel_customisation\source\myknobscene.h(71): warning C4100: 'event': unreferenced formal parameter
+c:\users\heyimrige\desktop\programing\juce\myfolder\juceprojects\tutorial_look_and_feel_customisation\source\myknobscene.h(75): warning C4100: 'event': unreferenced formal parameter
+c:\users\heyimrige\desktop\programing\juce\myfolder\juceprojects\tutorial_look_and_feel_customisation\source\mycustomlookandfeel_v2.h(23): warning C4373: 'MyCustomLookAndFeel_V2::drawRotarySlider': virtual function overrides 'juce::LookAndFeel_V2::drawRotarySlider', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+  c:\users\heyimrige\desktop\programing\juce\modules\juce_gui_basics\lookandfeel\juce_lookandfeel_v2.h(204): note: see declaration of 'juce::LookAndFeel_V2::drawRotarySlider'
+c:\users\heyimrige\desktop\programing\juce\myfolder\juceprojects\tutorial_look_and_feel_customisation\source\mycustomlookandfeel_v2.h(26): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\heyimrige\desktop\programing\juce\myfolder\juceprojects\tutorial_look_and_feel_customisation\source\myknobscene_v2.h(22): warning C4584: 'MyKnobScene_V2': base-class 'juce::MouseListener' is already a base-class of 'juce::Component'
+  c:\users\heyimrige\desktop\programing\juce\modules\juce_gui_basics\mouse\juce_mouselistener.h(37): note: see declaration of 'juce::MouseListener'
+  c:\users\heyimrige\desktop\programing\juce\modules\juce_gui_basics\components\juce_component.h(33): note: see declaration of 'juce::Component'
+c:\users\heyimrige\desktop\programing\juce\myfolder\juceprojects\tutorial_look_and_feel_customisation\source\myknobscene_v2.h(68): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\heyimrige\desktop\programing\juce\myfolder\juceprojects\tutorial_look_and_feel_customisation\source\myknobscene_v2.h(66): warning C4100: 'event': unreferenced formal parameter
+c:\users\heyimrige\desktop\programing\juce\myfolder\juceprojects\tutorial_look_and_feel_customisation\source\myknobscene_v2.h(70): warning C4100: 'event': unreferenced formal parameter
+c:\users\heyimrige\desktop\programing\juce\myfolder\juceprojects\tutorial_look_and_feel_customisation\source\main.cpp(28): warning C4100: 'commandLine': unreferenced formal parameter
+c:\users\heyimrige\desktop\programing\juce\myfolder\juceprojects\tutorial_look_and_feel_customisation\source\main.cpp(50): warning C4100: 'commandLine': unreferenced formal parameter
+  LookAndFeelCustomisationTutorial.vcxproj -> C:\Users\HeyImRige\Desktop\Programing\JUCE\MyFolder\JuceProjects\tutorial_look_and_feel_customisation\Builds\VisualStudio2015\Debug\LookAndFeelCustomisationTutorial.exe
   LookAndFeelCustomisationTutorial.vcxproj -> Debug\\LookAndFeelCustomisationTutorial.pdb (Full PDB)
