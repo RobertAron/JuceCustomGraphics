@@ -21,7 +21,7 @@ class MyKnobScene_V2    :	public Component,
 							public Component::MouseListener
 {
 public:
-    MyKnobScene_V2()
+    MyKnobScene_V2(Colour knobColour):myCustomLook(knobColour)
     {
         // In your constructor, you should add any child components, and
         // initialise any special settings that your component needs.
@@ -74,8 +74,8 @@ public:
 
 private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MyKnobScene_V2)
-	Slider rotaryDial;
 	MyCustomLookAndFeel_V2 myCustomLook;
+	Slider rotaryDial;
 	ComponentAnimator* globalAnimator;
 	Logger* log;
 	Desktop* myDesktop;

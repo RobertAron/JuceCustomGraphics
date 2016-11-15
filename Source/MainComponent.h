@@ -8,14 +8,14 @@
 class MainContentComponent   : public Component
 {
 public:
-    MainContentComponent()
+	MainContentComponent() :myKnob2(Colours :: blue)
     {
 
 		addAndMakeVisible(myKnob1);
 		addAndMakeVisible(myKnob2);
         button1.setButtonText ("Button 1");
         addAndMakeVisible (button1);
-        
+
         button2.setButtonText ("Button 2");
         addAndMakeVisible (button2);
         
