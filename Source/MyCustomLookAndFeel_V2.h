@@ -24,11 +24,26 @@ public:
 	}
 	void drawRotarySlider(Graphics& g, int x, int y, int width, int height, float sliderposition, const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider) override
 	{
-		const float pi = 3.14159;
+		mouseOverBool = slider.isMouseOver();
+		if (mouseOverBool && (animationValue < .9f))
+		{
+			animationValue = animationValue + 0.15f;
+			if (animationValue > 1)animationValue = 1;
+		}
+		else if (!mouseOverBool && (animationValue>0.1f))
+		{
+			animationValue = animationValue - 0.18f;
+			if (animationValue < 0)animationValue = 0;
+		}
+		const float pi = 3.141592653;
+		const float twopi = 3.141592653*2.0f;
 		//outer circle radius
 		const float radius = jmin(width / 2, height / 2) - 3.0f;
 		//inner circle radius
-		const float innerradius = jmin(width / 2, height / 2) - 7.0f;
+		const float innerradius = jmin(width / 2, height / 2) - 20.0f-4.0*animationValue;
+		//inner circle width
+		//TODO: This will change over time
+		const float glowWidth = radius - innerradius;
 		//percentage of glowy ring
 		const float glowPercentage = radius / innerradius;
 		//outter circle centers
@@ -46,18 +61,12 @@ public:
 		const float rw = radius * 2.0f;
 		//angle of the knob
 		const float angle = rotaryStartAngle + sliderposition * (rotaryEndAngle - rotaryStartAngle);
+		//around full circle
+		const float coverCircle = rotaryStartAngle + twopi;
+		//angle that the circle indicator needs to be drawn
+		const float glowAngle = angle - (glowWidth*1.5) / (pi*radius);
 		//change opacity over based on mouse
-		mouseOverBool=slider.isMouseOver();
-		if(mouseOverBool&&(animationValue < .9f))
-		{
-			animationValue = animationValue+ 0.15f;
-			if (animationValue > 1)animationValue = 1;
-		} 
-		else if(!mouseOverBool&& (animationValue>0.1f))
-		{
-			animationValue = animationValue- 0.18f;
-			if (animationValue < 0)animationValue = 0;
-		}
+
 
 
 		//fill knob area white
@@ -77,12 +86,47 @@ public:
 		g.setColour(Colours::grey);
 		g.fillPath(knobAngleEtch);
 
+
+		
+
+
 		//glowy path
 		Path knobRingGlow;
 		knobRingGlow.addPieSegment(innerx, innery, innerw, innerw, rotaryStartAngle, angle, glowPercentage);
-		g.setColour(Colours::red);
+		g.setColour(Colours::purple);
 		g.fillPath(knobRingGlow);
-		
+
+
+		//Draw Cicle Dial
+		Path positionCircle;
+		positionCircle.addEllipse(0, 0, glowWidth, glowWidth);
+		positionCircle.applyTransform(AffineTransform::translation(0, -radius).rotated(glowAngle).translated(centreX, centreY));
+		g.setColour(Colours::purple);
+		g.fillPath(positionCircle);
+
+
+		//cover circle
+		Path coverPie;
+		coverPie.addPieSegment(innerx, innery, innerw, innerw, rotaryEndAngle, coverCircle, glowPercentage);
+		g.setColour(Colours::silver);
+		g.fillPath(coverPie);
+
+		//dark outline
+		g.setColour(Colours::darkgrey);
+
+		knobAngleEtch.addCentredArc(centreX, centreY, radius, radius,0, rotaryEndAngle, coverCircle,true);
+		knobAngleEtch.addCentredArc(centreX, centreY, innerradius, innerradius, 0.0f, rotaryStartAngle, rotaryEndAngle, true);
+		const PathStrokeType myStroke(1.0f);
+		g.strokePath(knobAngleEtch, myStroke);
+
+		Path actualKnob;
+		actualKnob.addEllipse(innerx, innery, innerw,innerw);
+		ColourGradient knobGradient(Colours::darkgrey, innerx, innery, Colours::black, innerx + innerw, innery + innerw, false);
+		g.setGradientFill(knobGradient);
+		g.fillPath(actualKnob);
+
+
+
 		
 		
 		
