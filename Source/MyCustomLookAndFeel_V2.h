@@ -25,12 +25,14 @@ public:
 	void drawRotarySlider(Graphics& g, int x, int y, int width, int height, float sliderposition, const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider) override
 	{
 		mouseOverBool = slider.isMouseOver();
-		if (mouseOverBool && (animationValue < .9f))
+		mousePosition = slider.isMouseButtonDown();
+
+		if (mouseOverBool && (animationValue < .9f)&&!mousePosition)
 		{
 			animationValue = animationValue + 0.15f;
 			if (animationValue > 1)animationValue = 1;
 		}
-		else if (!mouseOverBool && (animationValue>0.1f))
+		else if (!mouseOverBool && (animationValue>0.1f)&& !mousePosition)
 		{
 			animationValue = animationValue - 0.18f;
 			if (animationValue < 0)animationValue = 0;
@@ -39,13 +41,14 @@ public:
 		const float twopi = 3.141592653*2.0f;
 		//outer circle radius
 		const float radius = jmin(width / 2, height / 2) - 3.0f;
-		//inner circle radius
-		const float innerradius = jmin(width / 2, height / 2) - 20.0f-4.0*animationValue;
-		//inner circle width
-		//TODO: This will change over time
-		const float glowWidth = radius - innerradius;
 		//percentage of glowy ring
-		const float glowPercentage = radius / innerradius;
+		const float buttonPercentage = 0.8f;
+		const float glowPercentage = 1.0f - buttonPercentage;
+		//inner circle radius
+		const float innerradius = radius*buttonPercentage-4.0*animationValue;
+		//inner circle width
+		const float glowWidth = radius - innerradius;
+		
 		//outter circle centers
 		const float centreX = x + width * 0.5f;
 		const float centreY = y + height * 0.5f;
@@ -92,22 +95,22 @@ public:
 
 		//glowy path
 		Path knobRingGlow;
-		knobRingGlow.addPieSegment(innerx, innery, innerw, innerw, rotaryStartAngle, angle, glowPercentage);
+		knobRingGlow.addPieSegment(rx, ry, rw, rw, rotaryStartAngle, angle, glowPercentage);
 		g.setColour(Colours::purple);
 		g.fillPath(knobRingGlow);
 
-
+		
 		//Draw Cicle Dial
 		Path positionCircle;
 		positionCircle.addEllipse(0, 0, glowWidth, glowWidth);
 		positionCircle.applyTransform(AffineTransform::translation(0, -radius).rotated(glowAngle).translated(centreX, centreY));
 		g.setColour(Colours::purple);
 		g.fillPath(positionCircle);
-
+		
 
 		//cover circle
 		Path coverPie;
-		coverPie.addPieSegment(innerx, innery, innerw, innerw, rotaryEndAngle, coverCircle, glowPercentage);
+		coverPie.addPieSegment(rx, ry, rw, rw, rotaryEndAngle, coverCircle, glowPercentage);
 		g.setColour(Colours::silver);
 		g.fillPath(coverPie);
 
@@ -161,6 +164,7 @@ public:
 		*/
 	}
 private:
+	bool mousePosition;
 	bool mouseOverBool;
 	float animationValue = 0.0f;
 	Logger* log;
