@@ -22,6 +22,11 @@ public:
 		setColour(Slider::rotarySliderOutlineColourId,colour);
 		log = Logger::getCurrentLogger();
 	}
+	MyCustomLookAndFeel_V2()
+	{
+		setColour(Slider::rotarySliderOutlineColourId, Colours::purple);
+		log = Logger::getCurrentLogger();
+	}
 	void drawRotarySlider(Graphics& g, int x, int y, int width, int height, float sliderposition, const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider) override
 	{
 		mouseOverBool = slider.isMouseOver();
@@ -96,7 +101,7 @@ public:
 		//glowy path
 		Path knobRingGlow;
 		knobRingGlow.addPieSegment(rx, ry, rw, rw, rotaryStartAngle, angle, glowPercentage);
-		g.setColour(Colours::purple);
+		g.setColour(findColour(Slider::rotarySliderOutlineColourId));
 		g.fillPath(knobRingGlow);
 
 		
@@ -104,7 +109,6 @@ public:
 		Path positionCircle;
 		positionCircle.addEllipse(0, 0, glowWidth, glowWidth);
 		positionCircle.applyTransform(AffineTransform::translation(0, -radius).rotated(glowAngle).translated(centreX, centreY));
-		g.setColour(Colours::purple);
 		g.fillPath(positionCircle);
 		
 

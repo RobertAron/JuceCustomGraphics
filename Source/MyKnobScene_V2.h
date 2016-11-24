@@ -37,6 +37,19 @@ public:
 		
 
     }
+	MyKnobScene_V2()
+	{
+
+		myDesktop = &Desktop::getInstance();
+		globalAnimator = &myDesktop->getAnimator();
+		log = Logger::getCurrentLogger();
+		setLookAndFeel(&myCustomLook);
+		rotaryDial.setSliderStyle(Slider::RotaryHorizontalVerticalDrag);
+
+
+		rotaryDial.addMouseListener(this, true);
+		addAndMakeVisible(rotaryDial);
+	}
 
     ~MyKnobScene_V2()
     {
@@ -64,11 +77,9 @@ public:
 
     }
 	void MyKnobScene_V2::mouseEnter(const MouseEvent& event) {
-		log->writeToLog("test3");
 		globalAnimator->animateComponent(&rotaryDial, rotaryDial.getBounds(), .95, 100, false, 1, 1);
 	}
 	void MyKnobScene_V2::mouseExit(const MouseEvent& event) {
-		log->writeToLog("test4");
 		globalAnimator->animateComponent(&rotaryDial, rotaryDial.getBounds(), 1, 150, false, 1, 1);
 	}
 

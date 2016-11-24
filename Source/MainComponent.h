@@ -8,7 +8,8 @@
 class MainContentComponent   : public Component
 {
 public:
-	MainContentComponent() :myKnob2(Colours :: blue)
+	MainContentComponent() :
+		myKnob1(Colours::blue)
     {
 
 		addAndMakeVisible(myKnob1);
@@ -50,7 +51,7 @@ public:
     }
 
 private:
-	MyKnobScene myKnob1;
+	MyKnobScene_V2 myKnob1;
 	MyKnobScene_V2 myKnob2;
     TextButton button1;
     TextButton button2;
