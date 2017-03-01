@@ -45,10 +45,11 @@ public:
 		}
         
         const int buttonHeight = 30;
-        
+        /*
         button1.setBounds (area.removeFromTop (buttonHeight).reduced (border));
         button2.setBounds (area.removeFromTop (buttonHeight).reduced (border));
-    }
+		*/
+	}
 
 private:
 	MyKnobScene_V2 myKnob1;
